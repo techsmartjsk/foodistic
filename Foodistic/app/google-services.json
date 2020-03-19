@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "390185275958",
+    "firebase_url": "https://foodistic-d8b9e.firebaseio.com",
+    "project_id": "foodistic-d8b9e",
+    "storage_bucket": "foodistic-d8b9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390185275958:android:080367259d2a321dc0be97",
+        "android_client_info": {
+          "package_name": "com.futuristic.foodistic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390185275958-em0s9dis3i9p0gobj7i3fdibnohrvqvf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.futuristic.foodistic",
+            "certificate_hash": "4f5d0f3ec63c296973192ac9660c795f08f47912"
+          }
+        },
+        {
+          "client_id": "390185275958-krt7qg9s2r2mclte86qqp7lucuf2kvbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzgp9BoIVvd9ZOQmc8k94phuffOWrFIbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390185275958-krt7qg9s2r2mclte86qqp7lucuf2kvbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.futuristic.foodistic">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.TryMe"></activity>
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".view.profile.UserProfile" />
+        <activity android:name=".activity.Slider" >
+
+
+        </activity>
+        <activity android:name=".view.cart.Cart" />
+        <activity android:name=".authentication.PhoneNumberVerification" />
+        <activity android:name=".authentication.auth"></activity>
+        <activity
+            android:name=".view.home.HomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.category.CategoryActivity"
+            android:label="Category"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.Details" />
+        <activity android:name=".activity.CartActivity" />
+        <activity android:name=".activity.OrderActivity" />
+        <activity android:name=".activity.ConfirmationActivity" />
+    </application>
+
+</manifest>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.profile.UserProfile">
+   <RelativeLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+   <RelativeLayout
+       android:id="@+id/bg_img"
+       android:layout_width="match_parent"
+       android:layout_height="250dp"
+       android:background="@drawable/background">
+
+   </RelativeLayout>
+<RelativeLayout
+    android:layout_marginTop="160dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+   <de.hdodenhof.circleimageview.CircleImageView
+       android:layout_marginLeft="100dp"
+       android:id="@+id/profile_img"
+       android:layout_width="155dp"
+       android:layout_height="155dp"
+       android:src="@drawable/profile_image"
+       app:civ_border_width="2dp"
+       app:civ_border_color="@color/colorWhite"
+       >
+
+   </de.hdodenhof.circleimageview.CircleImageView>
+
+<EditText
+    android:id="@+id/UserName"
+    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_margin="35dp"
+    android:hint="Username"
+    android:layout_below="@+id/profile_img">
+</EditText>
+   <EditText
+       android:id="@+id/Phone_Number"
+       android:layout_height="wrap_content"
+       android:layout_width="300dp"
+       android:layout_margin="35dp"
+       android:hint="Phone Number"
+       android:layout_below="@+id/UserName">
+   </EditText>
+   <EditText
+       android:id="@+id/Address"
+       android:layout_height="wrap_content"
+       android:layout_width="300dp"
+       android:layout_margin="35dp"
+       android:inputType="textPostalAddress"
+       android:hint="Address"
+       android:layout_below="@+id/Phone_Number">
+   </EditText>
+
+   <Button
+       android:id="@+id/save"
+       android:layout_width="300dp"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/Address"
+       android:layout_alignParentStart="true"
+       android:layout_marginLeft="30dp"
+       android:text="Save"
+       android:textAllCaps="false">
+
+   </Button>
+
+</RelativeLayout>
+
+   </RelativeLayout>
+</ScrollView>
