@@ -14,15 +14,11 @@ import android.widget.TextView;
 import com.futuristic.foodistic.R;
 import com.futuristic.foodistic.activity.MainActivity;
 import com.futuristic.foodistic.model.GeneralFood;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import static android.media.CamcorderProfile.get;
-import static com.futuristic.foodistic.activity.CartActivity.grandTotal;
-import static com.futuristic.foodistic.activity.CartActivity.priceAdjust;
 import static com.futuristic.foodistic.activity.MainActivity.cartFoods;
-import static com.futuristic.foodistic.activity.MainActivity.cartUpdate;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.CartViewHolder> {
 

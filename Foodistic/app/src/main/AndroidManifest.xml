@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.TryMe"></activity>
+        <activity android:name=".activity.Checkout"></activity>
+        <activity android:name=".activity.TryMe" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,16 +21,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".view.profile.UserProfile" />
-        <activity android:name=".activity.Slider" >
-
-
-        </activity>
+        <activity android:name=".activity.Slider"></activity>
         <activity android:name=".view.cart.Cart" />
         <activity android:name=".authentication.PhoneNumberVerification" />
-        <activity android:name=".authentication.auth"></activity>
+        <activity android:name=".authentication.auth" />
         <activity
             android:name=".view.home.HomeActivity"
             android:theme="@style/AppTheme" />

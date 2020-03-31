@@ -11,10 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.futuristic.foodistic.R;
-import com.futuristic.foodistic.activity.CartActivity;
 import com.futuristic.foodistic.activity.Details;
 import com.futuristic.foodistic.model.GeneralFood;
 import com.squareup.picasso.Picasso;

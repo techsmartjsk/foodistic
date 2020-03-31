@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,18 +24,14 @@ import android.widget.Toast;
 import com.futuristic.foodistic.R;
 import com.futuristic.foodistic.FoodCartAdapters.CartAdapter;
 import com.futuristic.foodistic.model.GeneralFood;
-import com.futuristic.foodistic.view.home.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -106,79 +101,79 @@ public class CartActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.order_button){
-            OrderDetails();
-
+            Intent intent = new Intent(CartActivity.this,TryMe.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
     }
-    private void OrderDetails() {
-
-        for(int i=0;i<cartFoods.size();i++) {
-            String setTitle = cartFoods.get(i).getTitle();
-            Double setPrice = cartFoods.get(i).getPrice();
-            Double totalPrice = 0.0;
-            totalPrice += cartFoods.get(i).getPrice();
-
-
-
-            HashMap<String, String> profilemap = new HashMap<String, String>();
-            profilemap.put("Title",setTitle);
-            profilemap.put("Price", setPrice.toString());
-            profilemap.put("Total",totalPrice.toString());
-            OrdersRef.child("Orders").child(CurrentUserId).child(currentDate).child(setTitle).setValue(profilemap)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-
-                                AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this,R.style.AlertDialog);
-                                builder.setTitle("Enter Address and Phone Number");
-                                final EditText address=new EditText(CartActivity.this);
-                                address.setHint("Address");
-                                final EditText phone_no=new EditText(CartActivity.this);
-                                address.setHint("Phone");
-                                LinearLayout lay = new LinearLayout(CartActivity.this);
-                                lay.setOrientation(LinearLayout.VERTICAL);
-                                lay.addView(address);
-                                lay.addView(phone_no);
-                                builder.setView(lay);
-
-                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        String Addres =address.getText().toString();
-                                        String phone= phone_no.getText().toString();
-                                        if(TextUtils.isEmpty(Addres) || TextUtils.isEmpty(phone)){
-                                            Toast.makeText(CartActivity.this,"Please Full details",Toast.LENGTH_SHORT).show();
-                                        }else{
-                                            for(i=0;i<cartFoods.size();i++) {
-                                                SmsManager sms = SmsManager.getDefault();
-                                                sms.sendTextMessage("+919625645572", null, "Order: " + cartFoods.get(i).getTitle() + " " + cartFoods.get(i).getPrice() + "  at" + " " + phone + " Call at :" + " " + Addres, null, null);
-                                                Toast.makeText(CartActivity.this, "Order Placed Successfully", Toast.LENGTH_LONG).show();
-                                                Intent intent = new Intent(CartActivity.this,TryMe.class);
-                                                startActivity(intent);
-                                            }
-                                        }
-                                    }
-                                });
-                                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.cancel();
-                                    }
-                                });
-                                builder.show();
-
-
-                            } else {
-                                Toast.makeText(CartActivity.this, "UnSuccessful", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-        }
-    }
-    public static int grandTotal(List< GeneralFood> cartFoods){
+//    private void OrderDetails() {
+//
+//        for(int i=0;i<cartFoods.size();i++) {
+//            String setTitle = cartFoods.get(i).getTitle();
+//            Double setPrice = cartFoods.get(i).getPrice();
+//            Double totalPrice = 0.0;
+//            totalPrice += cartFoods.get(i).getPrice();
+//
+//
+//
+//            HashMap<String, String> profilemap = new HashMap<String, String>();
+//            profilemap.put("Title",setTitle);
+//            profilemap.put("Price", setPrice.toString());
+//            profilemap.put("Total",totalPrice.toString());
+//            OrdersRef.child("Orders").child(CurrentUserId).child(currentDate).child(setTitle).setValue(profilemap)
+//                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            if (task.isSuccessful()) {
+//
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this,R.style.AlertDialog);
+//                                builder.setTitle("Enter Address and Phone Number");
+//                                final EditText address=new EditText(CartActivity.this);
+//                                address.setHint("Address");
+//                                final EditText phone_no=new EditText(CartActivity.this);
+//                                address.setHint("Phone");
+//                                LinearLayout lay = new LinearLayout(CartActivity.this);
+//                                lay.setOrientation(LinearLayout.VERTICAL);
+//                                lay.addView(address);
+//                                lay.addView(phone_no);
+//                                builder.setView(lay);
+//
+//                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialogInterface, int i) {
+//                                        String Addres =address.getText().toString();
+//                                        String phone= phone_no.getText().toString();
+//                                        if(TextUtils.isEmpty(Addres) || TextUtils.isEmpty(phone)){
+//                                            Toast.makeText(CartActivity.this,"Please Full details",Toast.LENGTH_SHORT).show();
+//                                        }else{
+//                                            for(i=0;i<cartFoods.size();i++) {
+//                                                SmsManager sms = SmsManager.getDefault();
+//                                                sms.sendTextMessage("+919625645572", null, "Order: " + cartFoods.get(i).getTitle() + " " + cartFoods.get(i).getPrice() + "  at" + " " + phone + " Call at :" + " " + Addres, null, null);
+//                                                Toast.makeText(CartActivity.this, "Order Placed Successfully", Toast.LENGTH_LONG).show();
+//                                                Intent intent = new Intent(CartActivity.this,TryMe.class);
+//                                                startActivity(intent);
+//                                            }
+//                                        }
+//                                    }
+//                                });
+//                                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialogInterface, int i) {
+//                                        dialogInterface.cancel();
+//                                    }
+//                                });
+//                                builder.show();
+//
+//
+//                            } else {
+//                                Toast.makeText(CartActivity.this, "UnSuccessful", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//        }
+//    }
+    public static int grandTotal(List<GeneralFood> cartFoods){
 
         int totalPrice = 0;
         for(int i = 0 ; i < cartFoods.size(); i++) {

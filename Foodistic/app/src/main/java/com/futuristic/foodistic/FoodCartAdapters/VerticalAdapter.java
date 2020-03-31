@@ -29,6 +29,10 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.Vertic
     private List<GeneralFood> regularFoods;
     private Context context;
 
+    public VerticalAdapter(List<GeneralFood> regularFoods, Context applicationContext) {
+
+    }
+
 
     public static class VerticalViewHolder extends RecyclerView.ViewHolder{
 
