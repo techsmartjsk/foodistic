@@ -77,8 +77,7 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.Vertic
             public void onClick(View v) {
                 cartFoods.add(regularFoods.get(position));
                 cartUpdate();
-
-
+                holder.regularPlus.setEnabled(false);
             }});
 
         holder.verticalLayout.setOnClickListener(new View.OnClickListener() {

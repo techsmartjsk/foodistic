@@ -11,9 +11,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.futuristic.foodistic.R;
 import com.futuristic.foodistic.activity.Details;
+import com.futuristic.foodistic.activity.MainActivity;
 import com.futuristic.foodistic.model.GeneralFood;
 import com.squareup.picasso.Picasso;
 
@@ -71,6 +73,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
             @Override
             public void onClick(View v) {
                 cartFoods.add(popularFoods.get(position));
+                holder.popularPlus.setEnabled(false);
                 cartUpdate();
             }});
 

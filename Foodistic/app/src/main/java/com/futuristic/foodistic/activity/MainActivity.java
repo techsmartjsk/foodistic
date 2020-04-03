@@ -176,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
     public static void cartUpdate() {
         if (tv != null && cartFoods != null)
             tv.setText(Integer.toString(cartFoods.size()));
-
     }
 
 

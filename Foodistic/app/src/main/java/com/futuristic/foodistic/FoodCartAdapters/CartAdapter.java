@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.futuristic.foodistic.R;
 import com.futuristic.foodistic.activity.MainActivity;
@@ -28,6 +30,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     private Context context;
     private CartAdapter mCartAdapter;
+    public int i = 1;
 
 
     @NonNull
@@ -58,10 +61,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
                 cartUpdate();
 
-
-            }});
-
-
+            }
+        });
+        holder.NumberBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ++i;
+                holder.NumberBtn.setText(String.valueOf(i));
+            }
+        });
     }
 
     @Override
@@ -75,6 +83,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         TextView cartPrice;
         CardView cartParentLayout;
         ImageButton cartDelete;
+        Button NumberBtn;
 
         public CartViewHolder(View itemView) {
             super(itemView);
@@ -84,7 +93,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             cartPrice = itemView.findViewById(R.id.cart_food_price);
             cartParentLayout = itemView.findViewById(R.id.cart_parent_layout);
             cartDelete = itemView.findViewById(R.id.cart_food_delete);
-
+            NumberBtn = itemView.findViewById(R.id.NumberBtn);
         }
     }
 
@@ -93,6 +102,4 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         MainActivity.cartFoods = cartFoods;
 
     }
-
-
 }
